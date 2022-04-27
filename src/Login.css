@@ -1,0 +1,49 @@
+.loginCont {
+    margin: auto;
+    width: 400px;
+    padding: 25px;
+    background: rgba(187, 187, 187, 0.363);
+    margin-top: 50px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginCont button {
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.loginCont button.loading {
+    border: none;
+    border-radius: 15px;
+    padding: 6px;
+}
+
+.loginCont button:hover {
+    background-color: white;
+}
+
+.loginCont button:active {
+    background-color: rgb(209, 209, 209);
+}
+
+.loginCont input {
+    border: solid black 1px;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.loginCont p {
+    color: white;
+    padding-top: 15px;
+    margin: 0;
+}
+
+.loginCont p a {
+    color: rgb(221, 221, 221);
+    padding-top: 15px;
+    margin: 0;
+}

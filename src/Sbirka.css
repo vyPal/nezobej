@@ -1,0 +1,99 @@
+.lekce-jmeno {
+  margin-top: 30px;
+  display: flex;
+  width: 750px;
+  margin-left: calc((100% - 750px) / 2);
+}
+
+.lekce-jmeno p {
+  display: inline-block;
+  margin: 0;
+  color: white;
+  margin-left: 2px;
+}
+
+.lekce-jmeno svg {
+  display: inline-block;
+  color: white;
+}
+
+.lekce {
+  display: flex;
+  max-width: 750px;
+  width: 750px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0;
+  margin: auto;
+}
+
+.lekce li {
+  list-style: none;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+  width: 177.5px;
+  height: 215px;
+  text-align: center;
+  color: white;
+}
+
+.lekce li svg.play {
+  color: #f04465;
+  font-size: 56px;
+}
+
+.lekce li svg.lock {
+  color: #616470;
+  font-size: 56px;
+}
+
+.lekce li svg.check {
+  color: #59c73d;
+  font-size: 56px;
+}
+
+.lekce li button {
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 22px;
+  min-width: 140px;
+  padding: 10px 22px;
+  font-weight: 500;
+  display: block;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.lekce li button.check {
+  border-bottom: 5px solid transparent;
+  border: solid;
+  border-width: 1px 1px 5px;
+  color: #eae9ec;
+  background: #2f3037;
+  border-color: #727580;
+}
+
+.lekce li button.check:hover {
+  color: #eae9ec;
+  background: #232429;
+  border-color: #646670;
+}
+
+.lekce li button.play {
+  border-bottom: 5px solid transparent;
+  border: solid;
+  border-width: 1px 1px 5px;
+  color: #eae9ec;
+  background: linear-gradient(180deg,#f36580,#f04465);
+  border-color: #b53c53;
+}
+
+.lekce li button.play:hover {
+  border-color: #9e3448;
+  color: #fff;
+  background: linear-gradient(180deg,#f14d6c,#ef2c51);
+}

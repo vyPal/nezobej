@@ -1,0 +1,48 @@
+.text-area {
+  padding: 25px 25px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 0.25;
+  width: 730px;
+  margin-top:30px;
+  margin-left: calc((100% - 750px) / 2);
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+}
+
+.text-area span {
+  height: 10px;
+  border-radius: 30px;
+}
+
+.text-area p {
+  color: white;
+  display: inline-block;
+  margin: 0;
+  font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+  width: 17px;
+  height: 30px;
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+  margin-right: -2px;
+}
+
+.text-area p.typing {
+  border-bottom: solid rgb(107, 107, 107);
+}
+
+.text-area p.typing-wrong {
+  border-bottom: solid rgb(107, 107, 107);
+  background-color: rgb(167, 39, 39);
+}
+
+.text-area p.typed {
+  color:rgb(116, 116, 116)
+}
+
+.text-area p.typed-wrong {
+  color:rgb(196, 196, 196);
+  background-color: rgb(107, 107, 107);
+}
