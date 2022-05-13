@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Register.css';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import TopNavBar from './TopBar/TopNavBar';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -40,38 +40,38 @@ class Register extends React.Component {
   register(e) {
     e.preventDefault();
     this.setState({btnLoading: true});
-    api.createAccount(this.state.email, this.state.password, this.state.name).then((res) => {
-        this.setState({btnLoading: false});
-        this.setState({success: true});
-        api.provider().account.createVerification('http://192.168.1.164:3000/verifytest').then((res) => {
-          console.log(res);
-        }, (err) => {
-          console.log(err);
-        })
+    api.createAccount(this.state.email, this.state.password, this.state.name).then(() => {
+      this.setState({btnLoading: false});
+      this.setState({success: true});
+      api.provider().account.createVerification('http://192.168.1.164:3000/verifytest').then((res) => {
+        console.log(res);
+      }, (err) => {
+        console.log(err);
+      });
     }, (err) => {
-      if(err=="AppwriteException: Param \"email\" is not optional.") {
-        alert("Prosím vyplňte pole email");
+      if(err=='AppwriteException: Param "email" is not optional.') {
+        alert('Prosím vyplňte pole email');
         this.setState({btnLoading: false});
       }
-      else if(err =="AppwriteException: Invalid email: Value must be a valid email address") {
-        alert("Prosím zadejte platnou emailovou adresu");
+      else if(err =='AppwriteException: Invalid email: Value must be a valid email address') {
+        alert('Prosím zadejte platnou emailovou adresu');
         this.setState({btnLoading: false});
       }
-      else if(err=="AppwriteException: Param \"password\" is not optional.") {
-        alert("Prosím zadejte heslo");
+      else if(err=='AppwriteException: Param "password" is not optional.') {
+        alert('Prosím zadejte heslo');
         this.setState({btnLoading: false});
       }
-      else if(err=="AppwriteException: Invalid credentials") {
-        alert("Email a heslo se neshodují");
+      else if(err=='AppwriteException: Invalid credentials') {
+        alert('Email a heslo se neshodují');
         this.setState({btnLoading: false});
       }
-      else if(err.includes("Password must be at least 8 characters")) {
-        alert("Heslo musí mít minimálně 8 znaků")
+      else if(err.includes('Password must be at least 8 characters')) {
+        alert('Heslo musí mít minimálně 8 znaků');
       }
       else {
         console.log(err);
       }
-    })
+    });
   }
 
   Buttons() {

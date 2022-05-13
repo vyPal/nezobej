@@ -29,13 +29,30 @@
   margin-right: -2px;
 }
 
+.text-area p.space {
+  position: relative;
+  top: 9px;
+}
+
 .text-area p.typing {
   border-bottom: solid rgb(107, 107, 107);
+}
+
+.text-area p.space.typing {
+  top: 11px;
+  margin-top: -3px;
+  padding-bottom: -10px;
 }
 
 .text-area p.typing-wrong {
   border-bottom: solid rgb(107, 107, 107);
   background-color: rgb(167, 39, 39);
+}
+
+.text-area p.space.typing-wrong {
+  top: 11px;
+  margin-top: -3px;
+  padding-bottom: -10px;
 }
 
 .text-area p.typed {
@@ -45,4 +62,17 @@
 .text-area p.typed-wrong {
   color:rgb(196, 196, 196);
   background-color: rgb(107, 107, 107);
+}
+
+.stats {
+  padding: 25px 25px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 0.25;
+  width: 730px;
+  margin-top:30px;
+  margin-left: calc((100% - 750px) / 2);
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
 }

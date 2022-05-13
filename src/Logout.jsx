@@ -12,9 +12,9 @@ class Logout extends React.Component {
 
   componentDidMount() {
     api.deleteCurrentSession().then(() => {
-      this.props.navigate("/");
+      this.props.navigate('/');
     }, () => {
-      this.props.navigate("/");
+      this.props.navigate('/');
     });
   }
 

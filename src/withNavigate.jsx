@@ -9,7 +9,7 @@ export const withNavigate = (Component) => {
       <Component
         navigate={navigate}
         {...props}
-        />
+      />
     );
   };
   
