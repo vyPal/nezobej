@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "export NODE_ENV=development && vite --host",
-    "build": "vite build && sudo cp dist/* /var/www/html -r",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "npx eslint --ext .jsx,.js src/",
     "lint:fix": "npx eslint --ext .jsx,.js src/ --fix"
