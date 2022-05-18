@@ -65,7 +65,7 @@ class Register extends React.Component {
         alert('Email a heslo se neshodují');
         this.setState({btnLoading: false});
       }
-      else if(err.includes('Password must be at least 8 characters')) {
+      else if(String(err).includes('Password must be at least 8 characters')) {
         alert('Heslo musí mít minimálně 8 znaků');
       }
       else {
