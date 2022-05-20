@@ -29,7 +29,8 @@ class Kurz extends React.Component {
       lastat: 0,
       speeds: [],
       done: false,
-      end: 0
+      end: 0,
+      mistakesBeforeRight: 0
     };
     this.Lekce = this.Lekce.bind(this);
     this.Letter = this.Letter.bind(this);
@@ -147,7 +148,13 @@ class Kurz extends React.Component {
       this.setState({started: Date.now()});
       this.setState({lastat: this.state.started});
     }
+    if(event.key !== this.state.text[this.state.onChar]) {
+      this.setState({mistakes: this.state.mistakes+1});
+      this.setState({mistakesBeforeRight: this.state.mistakesBeforeRight+1});
+    }
     if(event.key === this.state.text[this.state.onChar]) {
+      this.setState({wrong: this.state.wrong.concat(this.state.mistakesBeforeRight)});
+      this.setState({mistakesBeforeRight: 0});
       if(this.state.lastat == 0) {
         this.setState({lastat: Date.now()});
       } else {
@@ -264,17 +271,30 @@ class Kurz extends React.Component {
   }
 
   RenderStats() {
-    console.log(JSON.stringify(this.state.speeds))
+    console.log(JSON.stringify(this.state.speeds));
     return (
-      <div className="stats">
-        <h4>Rychlost CPM: {Math.floor(this.state.text.length/(((this.state.end-this.state.started)/1000)/60))}</h4>
-        <h4>Rychlost WPM: {Math.floor(this.state.text.split(' ').length/(((this.state.end-this.state.started)/1000)/60))}</h4>
-        <h3>Graf rychlosti:</h3>
-        <Sparkline
-          data={this.state.speeds}
-          height="100px"
-          width="730px"
-        />
+      <div>
+        <div className="stats">
+          <h2><u>Rychlost:</u></h2>
+          <h4>CPM: {Math.floor(this.state.text.length/(((this.state.end-this.state.started)/1000)/60))}</h4>
+          <h4>WPM: {Math.floor(this.state.text.split(' ').length/(((this.state.end-this.state.started)/1000)/60))}</h4>
+          <h3>Graf:</h3>
+          <Sparkline
+            data={this.state.speeds}
+            height="100px"
+            width="730px"
+          />
+        </div>
+        <div className="stats">
+          <h2><u>Chyby:</u></h2>
+          <h4>Počet: {this.state.mistakes}</h4>
+          <h3>Graf:</h3>
+          <Sparkline
+            data={this.state.wrong}
+            height="100px"
+            width="730px"
+          />
+        </div>
       </div>
     );
   }
@@ -301,24 +321,3 @@ class Kurz extends React.Component {
 }
 
 export default withNavigate(withParams(Kurz));
-
-const round10 = (value, exp) => decimalAdjust('round', value, exp);
-
-function decimalAdjust(type, value, exp) {
-  // If the exp is undefined or zero...
-  if (typeof exp === 'undefined' || +exp === 0) {
-    return Math[type](value);
-  }
-  value = +value;
-  exp = +exp;
-  // If the value is not a number or the exp is not an integer...
-  if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
-    return NaN;
-  }
-  // Shift
-  value = value.toString().split('e');
-  value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-  // Shift back
-  value = value.toString().split('e');
-  return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
-}
