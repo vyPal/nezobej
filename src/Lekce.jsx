@@ -149,7 +149,6 @@ class Kurz extends React.Component {
       this.setState({lastat: this.state.started});
     }
     if(event.key !== this.state.text[this.state.onChar]) {
-      this.setState({mistakes: this.state.mistakes+1});
       this.setState({mistakesBeforeRight: this.state.mistakesBeforeRight+1});
     }
     if(event.key === this.state.text[this.state.onChar]) {
@@ -218,6 +217,9 @@ class Kurz extends React.Component {
     }else {
       if(this.state.wrong.indexOf(this.state.onChar) == -1) {
         this.setState({wrong: this.state.wrong.concat(this.state.onChar), mistakes: this.state.mistakes+1});
+        this.setState({mistakesBeforeRight: 0});
+      } else {
+        this.setState({mistakesBeforeRight: this.state.mistakesBeforeRight+1});
       }
     }
   }
