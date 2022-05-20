@@ -214,7 +214,7 @@ class Kurz extends React.Component {
     }else {
       if(this.state.wrong.indexOf(this.state.onChar) == -1) {
         this.setState({wrong: this.state.wrong.concat(this.state.onChar), mistakes: this.state.mistakes+1});
-        this.setState({mistakesBeforeRight: 0});
+        this.setState({mistakesBeforeRight: 1});
       } else {
         this.setState({mistakesBeforeRight: this.state.mistakesBeforeRight+1});
       }
