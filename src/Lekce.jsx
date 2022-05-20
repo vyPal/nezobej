@@ -24,7 +24,7 @@ class Kurz extends React.Component {
       prefs: sessionStorage.getItem('prefs') || {},
       text: '',
       mistakes: 0,
-      wrong: [],
+      wrongAt: [],
       started: 0,
       lastat: 0,
       speeds: [],
@@ -153,7 +153,7 @@ class Kurz extends React.Component {
       this.setState({mistakesBeforeRight: this.state.mistakesBeforeRight+1});
     }
     if(event.key === this.state.text[this.state.onChar]) {
-      this.setState({wrong: this.state.wrong.concat(this.state.mistakesBeforeRight)});
+      this.setState({wrongAt: this.state.wrong.concat(this.state.mistakesBeforeRight)});
       this.setState({mistakesBeforeRight: 0});
       if(this.state.lastat == 0) {
         this.setState({lastat: Date.now()});
@@ -290,7 +290,7 @@ class Kurz extends React.Component {
           <h4>Počet: {this.state.mistakes}</h4>
           <h3>Graf:</h3>
           <Sparkline
-            data={this.state.wrong}
+            data={this.state.wrongAt}
             height="100px"
             width="730px"
           />
